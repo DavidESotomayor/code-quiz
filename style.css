@@ -1,0 +1,9 @@
+#time, #timer {
+    float: right;
+    margin-right: 10px;
+}
+
+#highscores {
+    float: left;
+    margin-left: 10px;
+}
