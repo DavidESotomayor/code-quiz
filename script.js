@@ -5,6 +5,7 @@ var quitButton = displayBox.querySelector(".displayBoxButtons .quit");
 var continueButton = displayBox.querySelector(".displayBoxButtons .continue")
 var quizBox = document.querySelector(".quizBox");
 var answerList = document.querySelector(".answerList");
+var currentQuestionCounter = quizBox.querySelector(".questionProgressBar .questionNumberOn");
 var questionCounter = 0;
 
 // Start Quiz Button Click Functionality
@@ -23,6 +24,7 @@ answerList.onclick = function (event) {
     if(event.target.matches('.answer')) {
         if (questionCounter < questions.length - 1) {
             questionCounter++;
+            currentQuestionCounter.innerHTML = questionCounter + 1;
         displayQuestions(questionCounter);
         }
     }
@@ -40,7 +42,7 @@ continueButton.onclick = function () {
 // grabbing questions and answers from 'questions' array
 function displayQuestions(index) {
     var questionText = document.querySelector(".question");
-    var questionElement = '<span>' + questions[index].question + '</span>';
+    var questionElement = '<span>' + questions[index].numberQuestion + ". " + questions[index].question + '</span>';
     var answerElement = '<div class="answer">' + questions[index].answer[0] + '<span></span></div>' 
                         + '<div class="answer">' + questions[index].answer[1] + '<span></span></div>' 
                         + '<div class="answer">' + questions[index].answer[2] + '<span></span></div>' 
