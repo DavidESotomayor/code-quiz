@@ -198,4 +198,10 @@ body {
     margin-bottom: 7.5px;
     justify-content: space-between;
     padding: 10px;
+    transition: all 0.3s ease;
+}
+
+section .answerList .answer:hover {
+    background: #797777;
+    color: #ffdab9;
 }
