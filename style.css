@@ -135,3 +135,35 @@ body {
     justify-content: space-between;
     padding: 0 30px;
 }
+
+/* Quiz Box Title Styling */
+
+.quizBox header .quizBoxTitle {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+/* Quiz Box Timer Styling */
+.quizBox header .quizBoxTimer {
+    align-items: center;
+    background: #797777;
+    border: 1px solid  #5d5b5b;
+    border-radius: 5px;
+    color: #ffdab9;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px; 
+    width: 130px;
+}
+
+.quizBox header .quizBoxTimer .timerText {
+    user-select: none;
+}
+
+.quizBox header .quizBoxTimer .timerSeconds {
+    background: #2e2c2c;
+    border-radius: 5px;
+    padding: 3px;
+    user-select: none;
+}
