@@ -13,9 +13,11 @@ body {
 
 /* Start Quiz Button Positioning */
 /* Display Box Positioning */
+/* Score Results Positioning */
 .startButton,
 .displayBox,
-.quizBox {
+.quizBox,
+.scoreResults {
     left: 50%;
     position: absolute;
     top: 50%;
@@ -224,4 +226,41 @@ section .answerList .answer:hover {
     color: #ffdab9;
     padding: 10px;
     user-select: none;
+}
+
+/* Score Results Styling */
+.scoreResults {
+    align-items: center;
+    background: whitesmoke;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    width: 60%;
+}
+
+.scoreResults .trophy {
+    color: #ffdab9;
+    font-size: 100px;
+}
+
+.scoreResults .finishText {
+    color: #797777;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.scoreResults .resultText {
+    color: #797777;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 5px;
+    text-align: center;
+}
+
+.scoreResults form {
+    border-top: 1px solid #797777;
+    padding: 10px;
 }
