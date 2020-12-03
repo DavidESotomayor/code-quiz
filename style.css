@@ -60,7 +60,18 @@ body {
     padding: 0 35px;
     display: flex;
     align-items: center;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 500;
     border-bottom: 1px solid#797777;
+}
+
+/* Rules List Styling */
+.displayBox .rulesList {
+    padding: 15px 40px;
+}
+
+/* Rules List Styling */
+.displayBox .rulesList .rules {
+    margin: 5px 0;
+    font-size: 20px;
 }
