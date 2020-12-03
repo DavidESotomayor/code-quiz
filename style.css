@@ -170,3 +170,32 @@ body {
     padding: 3px;
     user-select: none;
 }
+
+/* Quiz Box Section Styling */
+.quizBox section {
+    padding: 25px 30px;
+}
+
+/* Quiz Box Section Question Styling */
+.quizBox section .question {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Quiz Box Section Answers Styling */
+.quizBox section .answerList {
+    display: block;
+    padding: 20px 0px;
+}
+
+.quizBox section .answerList .answer {
+    align-items: center;
+    background: #d2d2d2;
+    border: 1px solid #797777;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 7.5px;
+    justify-content: space-between;
+    padding: 10px;
+}
