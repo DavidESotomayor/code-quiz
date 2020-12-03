@@ -84,7 +84,9 @@ body {
 }
 
 /* Display Box Buttons Styling */
-.displayBox .displayBoxButtons button {
+/* Initials Submit Button Styling */
+.displayBox .displayBoxButtons button,
+.scoreResults .scoreResultButtons button {
     border-color: #ffdab9;
     border-radius : 5px;
     color: #ffdab9;
@@ -98,12 +100,15 @@ body {
 }
 
 /* Customizing display buttons */
-.displayBoxButtons button.continue {
+/* Customizing score result buttons */
+.displayBoxButtons button.continue,
+.scoreResults .scoreResultButtons button {
     color: #ffdab9;
     background: #797777;
 }
 
-.displayBoxButtons button.continue:hover {
+.displayBoxButtons button.continue:hover,
+.scoreResults .scoreResultButtons button:hover {
     background: #5d5b5b;
 }
 
@@ -122,6 +127,7 @@ body {
     background: whitesmoke;
     border-radius: 5px;
     color: #797777;
+    display: none;
     width: 65%;
 }
 
