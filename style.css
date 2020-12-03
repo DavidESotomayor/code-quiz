@@ -94,7 +94,6 @@ body {
 
 /* Display Box Buttons Styling */
 .displayBox .displayBoxButtons button {
-    background: #797777;
     border-color: #ffdab9;
     border-radius : 5px;
     color: #ffdab9;
@@ -103,5 +102,26 @@ body {
     font-weight: 500;
     height: 30px;
     margin: 0 5px;
+    transition: all 0.3s ease;
     width: 100px;
+}
+
+/* Customizing display buttons */
+.displayBoxButtons button.continue {
+    color: #ffdab9;
+    background: #797777;
+}
+
+.displayBoxButtons button.continue:hover {
+    background: #5d5b5b;
+}
+
+.displayBoxButtons button.quit {
+    color:#ffdab9;
+    background:  #d2d2d2;
+}
+
+.displayBoxButtons button.quit:hover {
+    color: #ffdab9;
+    background : #797777;
 }
