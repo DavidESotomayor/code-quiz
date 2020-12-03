@@ -1,5 +1,13 @@
-// Create Layout
-// Create Start button
+// getting all elements
+var startButton = document.querySelector(".startButton button");
+var displayBox = document.querySelector(".displayBox");
+var quitButton = displayBox.querySelector(".displayBoxButtons .quit");
+var continueButton = displayBox.querySelector(".displayBoxButtons .continue")
+
+
+startButton.onclick = function () {
+    displayBox.classList.add("activeDisplayBox");
+}
     // Clicking Start button starts timer
     // A question is then prompted
     // A wrong answer subtracts time from timer
