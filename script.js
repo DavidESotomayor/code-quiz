@@ -6,12 +6,16 @@ var continueButton = displayBox.querySelector(".displayBoxButtons .continue")
 var quizBox = document.querySelector(".quizBox");
 var answerList = document.querySelector(".answerList");
 var currentQuestionCounter = quizBox.querySelector(".questionProgressBar .questionNumberOn");
+var timerCount = quizBox.querySelector(".quizBoxTimer .timerSeconds")
 var questionCounter = 0;
+var counter;
 
 // Start Quiz Button Click Functionality
-//displays "Display Box"
+// displays "Display Box"
+// starts timer
 startButton.onclick = function () {
     displayBox.classList.add("activeDisplayBox");
+    startTimer(60);
 }
 
 // Exit Quiz Button Click Functionality
@@ -56,17 +60,22 @@ function displayQuestions(index) {
     }
 }
 
+// comparing user selected answer to correct answer
 function answerSelected(answer) {
     var userResponse = answer.textContent;
     var correctResponse = questions[questionCounter].correctAnswer;
     if ( userResponse == correctResponse ){
-        console.log("Answer is correct");
-    } else {
-        console.log('Answer is wrong')
     }
-    // console.log(correctResponse)
 }
 
+// create functionality to timer
+function startTimer(time) {
+    counter = setInterval(timer, 1000)
+    function timer() {
+        timerCount.textContent = time;
+        time--
+    }
+}
 
 
     // Clicking Start button starts timer
