@@ -14,7 +14,8 @@ body {
 /* Start Quiz Button Positioning */
 /* Display Box Positioning */
 .startButton,
-.displayBox {
+.displayBox,
+.quizBox {
     left: 50%;
     position: absolute;
     top: 50%;
@@ -114,4 +115,12 @@ body {
 .displayBoxButtons button.quit:hover {
     color: #ffdab9;
     background : #797777;
+}
+
+/* Quiz Box Styling */
+.quizBox {
+    background: whitesmoke;
+    border-radius: 5px;
+    color: #797777;
+    width: 65%;
 }
