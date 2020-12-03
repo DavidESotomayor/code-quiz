@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Cabin', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header Positioning */
@@ -26,43 +26,44 @@ body {
 /* Display Box Positioning */
 .startButton,
 .displayBox {
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate( -50%, -50% )
 }
 
 /* Start Quiz Button Styling */
 .startButton button{
+    background: #797777;
+    border-color: #ffdab9;
+    border-radius: 5px;
+    color: #ffdab9;
+    cursor: pointer;
     font-size: 30px;
     font-weight: 500;
-    color:  #ffdab9;
-    border-color: #ffdab9;
-    background:  #797777;
+    outline:none;
     padding: 15px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
 }
 
 /* Display Box Styling */
 .displayBox {
     background: whitesmoke;
-    color: #797777;
     border-radius: 5px;
+    color: #797777;
+    display: none;
     width: 55%;
 }
 
 /* Display Box Title Styling */
 .displayBox .displayBoxTitle {
-    height: 60px;
-    width: 100%;
-    padding: 0 35px;
-    display: flex;
     align-items: center;
+    border-bottom: 1px solid #797777;
+    display: flex;
     font-size: 30px;
-    font-weight: 500;
-    border-bottom: 1px solid#797777;
+    font-weight: 500px;
+    height: 60px;
+    padding: 0 35px;
+    width: 100%;
 }
 
 /* Rules List Styling */
@@ -72,8 +73,8 @@ body {
 
 /* Rules List Styling */
 .displayBox .rulesList .rules {
-    margin: 5px 0;
     font-size: 20px;
+    margin: 5px 0;
 }
 
 /* Rules Span Styling */
