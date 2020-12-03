@@ -8,10 +8,6 @@
     <title>Code Quiz</title>
 </head>
 <body>
-    <header>
-        <h3 id="time">Time: <span id="timer">10</span></h3>
-        <h3 id="highscores">View Highscores</h3>
-    </header>
     
     <!-- Start Quiz Button -->
     <div class="startButton"><button>Start Quiz</button></div>
@@ -32,6 +28,42 @@
             <button class="continue">Continue</button>
         </div>
     </div>
+
+    <!-- Quiz Box -->
+    <div class="quizBox">
+        <header>
+            <div class="quizBoxTitle">Code Quiz</div>
+            <div class="quizBoxTimer">
+                <div class="timerText">Time Left:</div>
+                <div class="timerSeconds">60</div>
+            </div>
+        </header>
+        <section>
+            <div class="question">
+                <span>Question?</span>
+            </div>
+            <div class="answerList">
+                <div class="answer">
+                    <span>Answer</span>
+                    <div class="checkmark"><i class="fa fa-check-circle-o" aria-hidden="true"></i></div>
+                </div>
+                <div class="answer">
+                    <span>Answer</span>
+                    <div class="xmark"><i class="fa fa-times-circle-o" aria-hidden="true"></i></div>
+                </div>
+                <div class="answer">
+                    <span>Answer</span>
+                    <div class="xmark"><i class="fa fa-times-circle-o" aria-hidden="true"></i></div>
+                </div>
+                <div class="answer">
+                    <span>Answer</span>
+                    <div class="xmark"><i class="fa fa-times-circle-o" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
 
     <script src="script.js"></script>
 </body>
