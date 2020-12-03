@@ -52,3 +52,15 @@ body {
     border-radius: 5px;
     width: 55%;
 }
+
+/* Display Box Title Styling */
+.displayBox .displayBoxTitle {
+    height: 60px;
+    width: 100%;
+    padding: 0 35px;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 500;
+    border-bottom: 1px solid#797777;
+}
