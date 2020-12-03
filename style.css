@@ -110,6 +110,7 @@ body {
     width: 100px;
 }
 
+/* Customizing start button */
 /* Customizing display buttons */
 /* Customizing score result buttons */
 .displayBoxButtons button.continue,
@@ -118,6 +119,7 @@ body {
     background: #797777;
 }
 
+.startButton button:hover,
 .displayBoxButtons button.continue:hover,
 .scoreResults .scoreResultButtons button:hover {
     background: #5d5b5b;
