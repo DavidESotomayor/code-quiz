@@ -7,8 +7,12 @@ var quizBox = document.querySelector(".quizBox");
 var answerList = document.querySelector(".answerList");
 var currentQuestionCounter = quizBox.querySelector(".questionProgressBar .questionNumberOn");
 var timerCount = quizBox.querySelector(".quizBoxTimer .timerSeconds")
+var result = document.querySelector(".scoreResults")
+var resultButtons = document.querySelector(".scoreResults .scoreResultButtons")
+var userScore = document.querySelector(".scoreResults .resultText .answersCorrect")
 var questionCounter = 0;
 var counter;
+var score = 0;
 
 // Start Quiz Button Click Functionality
 // displays "Display Box"
@@ -30,6 +34,8 @@ answerList.onclick = function (event) {
             questionCounter++;
             currentQuestionCounter.innerHTML = questionCounter + 1;
         displayQuestions(questionCounter);
+        } else {
+            showScoreResults();
         }
     }
 }
@@ -65,7 +71,16 @@ function answerSelected(answer) {
     var userResponse = answer.textContent;
     var correctResponse = questions[questionCounter].correctAnswer;
     if ( userResponse == correctResponse ){
+        score++;
     }
+}
+
+// hides display box, quizbox, and shows results
+function showScoreResults() {
+    displayBox.classList.remove("activeDisplayBox")
+    quizBox.classList.remove("activeQuizBox")
+    result.classList.add("activeResults")
+    userScore.innerHTML = score;
 }
 
 // create functionality to timer
@@ -73,13 +88,19 @@ function startTimer(time) {
     counter = setInterval(timer, 1000)
     function timer() {
         timerCount.textContent = time;
-        time--
+        time--;
+        if ( time < 9 ) {
+            var singleNumber = timerCount.textContent;
+            timerCount.textContent = "0" + singleNumber;
+        }
+        if ( time < 0 ) {
+            clearInterval(counter);
+            timerCount.textContent = "00"
+        }
     }
 }
 
 
-    // Clicking Start button starts timer
-    // A question is then prompted
     // A wrong answer subtracts time from timer
     // A right answer is logged
 // When timer reaches zero

@@ -27,7 +27,8 @@ body {
 }
 
 .displayBox.activeDisplayBox,
-.quizBox.activeQuizBox {
+.quizBox.activeQuizBox,
+.scoreResults.activeResults {
     opacity: 1;
     pointer-events: auto;
 }
