@@ -23,7 +23,9 @@ body {
 }
 
 /* Start Quiz Button Positioning */
-.startButton {
+/* Display Box Positioning */
+.startButton,
+.displayBox {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -41,4 +43,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
     outline: none;
+}
+
+/* Display Box Styling */
+.displayBox {
+    background: whitesmoke;
+    color: #797777;
+    border-radius: 5px;
+    width: 55%;
 }
