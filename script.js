@@ -49,9 +49,23 @@ function displayQuestions(index) {
                         + '<div class="answer">' + questions[index].answer[3] + '<span></span></div>';
     questionText.innerHTML = questionElement;
     answerList.innerHTML = answerElement;
+
+    var allAnswers = answerList.querySelectorAll(".answer");
+    for ( var i = 0; i < allAnswers.length; i++ ){
+        allAnswers[i].setAttribute('onclick', 'answerSelected(this)');
+    }
 }
 
-
+function answerSelected(answer) {
+    var userResponse = answer.textContent;
+    var correctResponse = questions[questionCounter].correctAnswer;
+    if ( userResponse == correctResponse ){
+        console.log("Answer is correct");
+    } else {
+        console.log('Answer is wrong')
+    }
+    // console.log(correctResponse)
+}
 
 
 
