@@ -26,7 +26,8 @@ body {
                 0px 6px 12px 0px #5d5b5b;
 }
 
-.displayBox.activeDisplayBox {
+.displayBox.activeDisplayBox,
+.quizBox.activeQuizBox {
     opacity: 1;
     pointer-events: auto;
 }
