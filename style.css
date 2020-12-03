@@ -7,6 +7,7 @@
     font-family: 'Cabin', sans-serif;
 }
 
+/* Header Positioning */
 #time, #timer {
     float: right;
     margin-right: 10px;
@@ -15,4 +16,29 @@
 #highscores {
     float: left;
     margin-left: 10px;
+}
+
+body {
+    background: #d2d2d2;
+}
+
+/* Start Quiz Button Positioning */
+.startButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% )
+}
+
+/* Start Quiz Button Styling */
+.startButton button{
+    font-size: 30px;
+    font-weight: 500;
+    color:  #ffdab9;
+    border-color: #ffdab9;
+    background:  #797777;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
 }
