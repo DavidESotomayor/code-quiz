@@ -4,6 +4,8 @@ var displayBox = document.querySelector(".displayBox");
 var quitButton = displayBox.querySelector(".displayBoxButtons .quit");
 var continueButton = displayBox.querySelector(".displayBoxButtons .continue")
 var quizBox = document.querySelector(".quizBox");
+var answerList = document.querySelector(".answerList");
+var questionCounter = 0;
 
 // Start Quiz Button Click Functionality
 //displays "Display Box"
@@ -17,13 +19,38 @@ quitButton.onclick = function () {
     displayBox.classList.remove("activeDisplayBox");
 }
 
+answerList.onclick = function (event) {
+    if(event.target.matches('.answer')) {
+        if (questionCounter < questions.length - 1) {
+            questionCounter++;
+        displayQuestions(questionCounter);
+        }
+    }
+}
+
 
 // Continue Button Click Functionality
 //displays "Quiz Box"
 continueButton.onclick = function () {
     displayBox.classList.remove("activeDisplayBox");
     quizBox.classList.add("activeQuizBox");
+    displayQuestions(0);
 }
+
+// grabbing questions and answers from 'questions' array
+function displayQuestions(index) {
+    var questionText = document.querySelector(".question");
+    var questionElement = '<span>' + questions[index].question + '</span>';
+    var answerElement = '<div class="answer">' + questions[index].answer[0] + '<span></span></div>' 
+                        + '<div class="answer">' + questions[index].answer[1] + '<span></span></div>' 
+                        + '<div class="answer">' + questions[index].answer[2] + '<span></span></div>' 
+                        + '<div class="answer">' + questions[index].answer[3] + '<span></span></div>';
+    questionText.innerHTML = questionElement;
+    answerList.innerHTML = answerElement;
+}
+
+
+
 
 
     // Clicking Start button starts timer
@@ -40,91 +67,111 @@ continueButton.onclick = function () {
         {
             numberQuestion: 1,
             question: "Inside which HTML element do we put the Javascript?",
-            answer1: "<script>",
-            answer2: "<javascript>",
-            answer3: "<scripting>",
-            answer4: "<js>",
-            correctAnswer: "<script>"
+            correctAnswer: "script",
+            answer: [
+                "script",
+                "javascript",
+                "scripting",
+                "js"
+            ]
         },
         {
             numberQuestion: 2,
             question: "What is the correct syntax for referring to an external script called xxx.js?",
-            answer1: "<script src='xxx.js'>",
-            answer2: "<script href='xxx.js'>",
-            answer3: "<script name='xxx.js'>",
-            answer4: "<script img='xxx.js'>",
-            correctAnswer: "<script src='xxx.js'>"
+            correctAnswer: "script src='xxx.js'",
+            answer: [
+                "script src='xxx.js'",
+                "script href='xxx.js'",
+                "script name='xxx.js'",
+                "script img='xxx.js'"
+            ]
         },
         {
             numberQuestion: 3,
             question: "How do you write 'Hello World' in an alert box?",
-            answer1: "alertBox('Hello World');",
-            answer2: "alert('Hello World');",
-            answer3: "msg('Hello World');",
-            answer4: "msgBox('Hello World');",
-            correctAnswer: "alert('Hello World');"
+            correctAnswer: "alert('Hello World');",
+            answer: [
+                "alertBox('Hello World');",
+                "alert('Hello World');",
+                "msg('Hello World');",
+                "msgBox('Hello World');"
+            ]
         },
         {
             numberQuestion: 4,
             question: "How do you call a function named 'myFunction'?",
-            answer1: "call function myFunction()",
-            answer2: "call myFunction()",
-            answer3: "myFunction()",
-            answer4: "console.log(myFunction())",
-            correctAnswer: "myFunction()"
+            correctAnswer: "myFunction()",
+            answer: [
+                "call function myFunction()",
+                "call myFunction()",
+                "myFunction()",
+                "console.log(myFunction())"
+            ]
         },
         {
             numberQuestion: 5,
             question: "What is the correct syntax for writing an 'IF' statement?",
-            answer1: "if i == 5 then",
-            answer2: "if i == 5",
-            answer3: "if i = 5 then",
-            answer4: "if (i == 5)",
-            correctAnswer: "if (i == 5)"
+            correctAnswer: "if (i == 5)",
+            answer: [
+                "if i == 5 then",
+                "if i == 5",
+                "if i = 5 then",
+                "if (i == 5)"
+            ]
         },
         {
             numberQuestion: 6,
-            question: "How can you add a comment in Javascript?",
-            answer1: "'This is a comment'",
-            answer2: "//This is a comment",
-            answer3: "<!--This is a comment-->",
-            answer4: "(This is a comment)",
-            correctAnswer: "//This is a comment"
+            question: "Where is the best practice for placing your JS script?",
+            correctAnswer: "At the end of the body",
+            answer: [
+                "At the beginning of the head",
+                "At the beginning of the body",
+                "At the end of the body",
+                "At the end of the head"
+            ]
         },
         {
             numberQuestion: 7,
             question: "Which event occurs when the user clicks on an HTML element?",
-            answer1: "onchange",
-            answer2: "onmouseover",
-            answer3: "onmouseclick",
-            answer4: "onclick",
-            correctAnswer: "onclick"
+            correctAnswer: "onclick",
+            answer: [
+                "onchange",
+                "onmouseover",
+                "onmouseclick",
+                "onclick"
+            ]  
         },
         {
             numberQuestion: 8,
             question: "Which operator is used to assign a value to a variable?",
-            answer1: "*",
-            answer2: "-",
-            answer3: "+",
-            answer4: "=",
-            correctAnswer: "="
+            correctAnswer: "=",
+            answer: [
+                "*",
+                "-",
+                "+",
+                "="
+            ]
         },
         {
             numberQuestion: 9,
             question: "How do you write the beginning of a 'FOR' loop?",
-            answer1: "for i = 1 to 5",
-            answer2: "for(i = 0; i <= 5)",
-            answer3: "for(i = 0; i <= 5; i ++)",
-            answer4: "for(i <=5; i++)",
-            correctAnswer: "for(i = 0; i <= 5; i ++)"
+            correctAnswer: "for(i = 0; i <= 5; i ++)",
+            answer: [
+                "for i = 1 to 5",
+                "for(i = 0; i <= 5)",
+                "for(i = 0; i <= 5; i ++)",
+                "for(i <=5; i++)"
+            ]
         },
         {
             numberQuestion: 10,
             question: "Which of the following functions of an Array object removes the last element from an array and returns that element?",
-            answer1: "push()",
-            answer2: "pop()",
-            answer3: "join()",
-            answer4: "map()",
-            correctAnswer: "pop()"
+            correctAnswer: "pop()",
+            answer: [
+                "push()",
+                "pop()",
+                "join()",
+                "map()"
+            ]
         }
     ]
