@@ -8,18 +8,20 @@ var answerList = document.querySelector(".answerList");
 var currentQuestionCounter = quizBox.querySelector(".questionProgressBar .questionNumberOn");
 var timerCount = quizBox.querySelector(".quizBoxTimer .timerSeconds")
 var result = document.querySelector(".scoreResults")
-var resultButtons = document.querySelector(".scoreResults .scoreResultButtons")
+var exitButton = document.querySelector(".scoreResults .quit")
 var userScore = document.querySelector(".scoreResults .resultText .answersCorrect")
+var userInitialsInput = document.getElementById("#inputInitials")
 var questionCounter = 0;
 var counter;
 var score = 0;
+var timeTotal = 60;
 
 // Start Quiz Button Click Functionality
 // displays "Display Box"
 // starts timer
 startButton.onclick = function () {
     displayBox.classList.add("activeDisplayBox");
-    startTimer(60);
+    startTimer(timeTotal);
 }
 
 // Exit Quiz Button Click Functionality
@@ -72,6 +74,8 @@ function answerSelected(answer) {
     var correctResponse = questions[questionCounter].correctAnswer;
     if ( userResponse == correctResponse ){
         score++;
+    } else {
+        timeTotal -= 5;
     }
 }
 
@@ -83,17 +87,19 @@ function showScoreResults() {
     userScore.innerHTML = score;
 }
 
+
+
 // create functionality to timer
-function startTimer(time) {
+function startTimer() {
     counter = setInterval(timer, 1000)
     function timer() {
-        timerCount.textContent = time;
-        time--;
-        if ( time < 9 ) {
+        timerCount.textContent = timeTotal;
+        timeTotal--;
+        if ( timeTotal < 9 ) {
             var singleNumber = timerCount.textContent;
             timerCount.textContent = "0" + singleNumber;
         }
-        if ( time < 0 ) {
+        if ( timeTotal < 0 ) {
             clearInterval(counter);
             timerCount.textContent = "00"
         }
@@ -101,11 +107,6 @@ function startTimer(time) {
 }
 
 
-    // A wrong answer subtracts time from timer
-    // A right answer is logged
-// When timer reaches zero
-    // Game is over; submit initials and score
-    // Initials and score are saved; option to play quiz again
 
 
     // Questions and Answers
