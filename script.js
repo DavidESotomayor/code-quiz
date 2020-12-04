@@ -2,15 +2,18 @@
 var startButton = document.querySelector(".startButton");
 var displayBox = document.querySelector(".displayBox");
 var quitButton = displayBox.querySelector(".quit");
-var continueButton = displayBox.querySelector(".continue")
+var continueButton = displayBox.querySelector(".continue");
 var quizBox = document.querySelector(".quizBox");
 var answerList = document.querySelector(".answerList");
 var currentQuestionCounter = quizBox.querySelector(".questionNumberOn");
-var timerCount = quizBox.querySelector(".timerSeconds")
-var result = document.querySelector(".scoreResults")
-var exitButton = document.querySelector(".quit")
-var userScore = document.querySelector(".answersCorrect")
-var userInitialsInput = document.getElementById("#inputInitials")
+var timerCount = quizBox.querySelector(".timerSeconds");
+var result = document.querySelector(".scoreResults");
+var exitButton = document.querySelector(".quit");
+var userScore = document.querySelector(".answersCorrect");
+var userInitialsInput = document.getElementById("inputInitials");
+var submitButton = document.querySelector(".submitButton");
+var highscore = document.querySelector(".highscore");
+var viewHighscore = document.querySelector(".viewHighscore");
 var questionCounter = 0;
 var counter;
 var score = 0;
@@ -50,6 +53,30 @@ continueButton.onclick = function () {
     displayQuestions(0);
 }
 
+submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    
+    if (userInitialsInput.value && userInitialsInput.value !== ''){
+        localStorage.setItem('users', JSON.stringify([{name: userInitialsInput.value, num: userScore.innerHTML }]));
+        viewHighscore.classList.remove('hide');
+        submitButton.classList.add('hide');
+    }
+})
+
+viewHighscore.addEventListener('click', (event) => {
+    event.preventDefault();
+    result.classList.remove('activeResults');
+    highscore.classList.add('activeHighScore');
+    const users = JSON.parse(localStorage.getItem('users'))
+    console.log(users)
+    if (users) {
+
+    }
+
+})
+
+
+
 // grabbing questions and answers from 'questions' array
 function displayQuestions(index) {
     var questionText = document.querySelector(".question");
@@ -85,6 +112,7 @@ function showScoreResults() {
     result.classList.add("activeResults")
     userScore.innerHTML = score;
 }
+
 
 
 
