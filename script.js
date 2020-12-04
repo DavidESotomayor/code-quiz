@@ -1,21 +1,20 @@
 // Selecting Elements
-var startButton = document.querySelector(".startButton button");
+var startButton = document.querySelector(".startButton");
 var displayBox = document.querySelector(".displayBox");
-var quitButton = displayBox.querySelector(".displayBoxButtons .quit");
-var continueButton = displayBox.querySelector(".displayBoxButtons .continue")
+var quitButton = displayBox.querySelector(".quit");
+var continueButton = displayBox.querySelector(".continue")
 var quizBox = document.querySelector(".quizBox");
 var answerList = document.querySelector(".answerList");
-var currentQuestionCounter = quizBox.querySelector(".questionProgressBar .questionNumberOn");
-var timerCount = quizBox.querySelector(".quizBoxTimer .timerSeconds")
+var currentQuestionCounter = quizBox.querySelector(".questionNumberOn");
+var timerCount = quizBox.querySelector(".timerSeconds")
 var result = document.querySelector(".scoreResults")
-var exitButton = document.querySelector(".scoreResults .quit")
-var userScore = document.querySelector(".scoreResults .resultText .answersCorrect")
+var exitButton = document.querySelector(".quit")
+var userScore = document.querySelector(".answersCorrect")
 var userInitialsInput = document.getElementById("#inputInitials")
 var questionCounter = 0;
 var counter;
 var score = 0;
 var timeTotal = 60;
-
 // Start Quiz Button Click Functionality
 // displays "Display Box"
 // starts timer
