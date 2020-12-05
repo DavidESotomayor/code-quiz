@@ -18,13 +18,14 @@ var usersList = document.querySelector(".users");
 var deleteScores = document.querySelector(".deleteScores");
 var backButton = document.querySelector(".backButton");
 var inputContent = document.querySelector(".inputContent");
-var playAgain = document.querySelector(".playAgain");
+var finishText = document.querySelector(".finishText");
 var questionCounter = 0;
 var counter;
 var gameSetting = {
     score: 0,
     timeTotal: 60
 }
+
 // Start Quiz Button Click Functionality
 // displays "Display Box"
 // starts timer
@@ -38,7 +39,7 @@ quitButton.onclick = function () {
     displayBox.classList.remove("activeDisplayBox");
 }
 
-answerList.onclick = function (event) {
+answerList.addEventListener('click', (event) => {
     if (event.target.matches('.answer')) {
         if (questionCounter < questions.length - 1) {
             questionCounter++;
@@ -48,7 +49,7 @@ answerList.onclick = function (event) {
             showScoreResults();
         }
     }
-}
+})
 
 // Continue Button Click Functionality
 //displays "Quiz Box"
@@ -58,17 +59,7 @@ continueButton.addEventListener('click', (event) => {
     quizBox.classList.add("activeQuizBox");
     startTimer();
     displayQuestions(0);
-})
-
-playAgain.addEventListener('click', (event) => {
-    event.preventDefault();
-    gameSetting.score = 0;
-    gameSetting.timeTotal = 60;
-    result.classList.remove("activeResults");
-    highscore.classList.remove("activeHighScore");
-    quizBox.classList.add("activeQuizBox");
-    startTimer(true);
-    displayQuestions(0);
+    finishText.innerHTML = 'You finished the quiz!'
 })
 
 submitButton.addEventListener('click', (event) => {
@@ -93,7 +84,7 @@ viewHighscore.addEventListener('click', (event) => {
     highscore.classList.add('activeHighScore');
     const users = JSON.parse(localStorage.getItem('users'))
     if (users) {
-        const getAllUsers = users.map((element, index) => {
+        const getAllUsers = users.sort((a, b) => b.num - a.num).map((element, index) => {
             return `<li>${index + 1}. Name: ${element.name}, Num: ${element.num}</li>`
         })
         usersList.innerHTML = getAllUsers.join(', ')
@@ -109,6 +100,7 @@ deleteScores.addEventListener('click', (event) => {
     const newli = document.createElement('li')
     usersList.appendChild(newli);
     deleteScores.remove()
+    backButton.remove()
 })
 
 backButton.addEventListener('click', (event) => {
@@ -167,11 +159,26 @@ function startTimer(resetTimer) {
         }
         if (gameSetting.timeTotal < 0) {
             clearInterval(counter);
-            timerCount.textContent = "00"
+            timerCount.textContent = "00";
         }
     }
 }
 
+
+let defaultInterval = () => setInterval(() => {
+    const activeResultsPage = document.querySelector('.activeResults')
+    const activeHighScorePage = document.querySelector('.activeHighScore')
+    if (activeResultsPage || activeHighScorePage) {
+        clearInterval(defaultInterval);
+    } else if (timerCount.innerHTML === "00") {
+        result.classList.add('activeResults');
+        quizBox.classList.remove('activeQuizBox');
+        userScore.innerHTML = gameSetting.score;
+        finishText.innerHTML = 'You ran out of time!'
+        clearInterval(defaultInterval);
+    }
+}, 1000);
+defaultInterval()
 // Questions and Answers
 var questions = [
     {
