@@ -18,18 +18,18 @@ var usersList = document.querySelector(".users");
 var deleteScores = document.querySelector(".deleteScores");
 var backButton = document.querySelector(".backButton");
 var inputContent = document.querySelector(".inputContent");
-
+var playAgain = document.querySelector(".playAgain");
 var questionCounter = 0;
 var counter;
-var score = 0;
-var timeTotal = 60;
+var gameSetting = {
+    score: 0,
+    timeTotal: 60
+}
 // Start Quiz Button Click Functionality
 // displays "Display Box"
 // starts timer
 startButton.onclick = function () {
     displayBox.classList.add("activeDisplayBox");
-    // result.classList.add('activeResults')
-    // startTimer(timeTotal);
 }
 
 // Exit Quiz Button Click Functionality
@@ -50,15 +50,26 @@ answerList.onclick = function (event) {
     }
 }
 
-
 // Continue Button Click Functionality
 //displays "Quiz Box"
-continueButton.onclick = function () {
+continueButton.addEventListener('click', (event) => {
+    event.preventDefault();
     displayBox.classList.remove("activeDisplayBox");
     quizBox.classList.add("activeQuizBox");
-    startTimer(timeTotal);
+    startTimer();
     displayQuestions(0);
-}
+})
+
+playAgain.addEventListener('click', (event) => {
+    event.preventDefault();
+    gameSetting.score = 0;
+    gameSetting.timeTotal = 60;
+    result.classList.remove("activeResults");
+    highscore.classList.remove("activeHighScore");
+    quizBox.classList.add("activeQuizBox");
+    startTimer(true);
+    displayQuestions(0);
+})
 
 submitButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -102,20 +113,18 @@ deleteScores.addEventListener('click', (event) => {
 
 backButton.addEventListener('click', (event) => {
     event.preventDefault();
-   result.classList.add("activeResults")
-   highscore.classList.remove("activeHighScore")
+    result.classList.add("activeResults")
+    highscore.classList.remove("activeHighScore")
 })
-
-
 
 // grabbing questions and answers from 'questions' array
 function displayQuestions(index) {
     var questionText = document.querySelector(".question");
     var questionElement = '<span>' + questions[index].numberQuestion + ". " + questions[index].question + '</span>';
-    var answerElement = '<div class="answer">' + questions[index].answer[0] + '<span></span></div>'
-        + '<div class="answer">' + questions[index].answer[1] + '<span></span></div>'
-        + '<div class="answer">' + questions[index].answer[2] + '<span></span></div>'
-        + '<div class="answer">' + questions[index].answer[3] + '<span></span></div>';
+    var answerElement = `<div class="answer">${questions[index].answer[0]}<span></span></div>
+    <div class="answer">${questions[index].answer[1]}<span></span></div>
+    <div class="answer">${questions[index].answer[2]}<span></span></div>
+    <div class="answer">${questions[index].answer[3]}<span></span></div>`;
     questionText.innerHTML = questionElement;
     answerList.innerHTML = answerElement;
 
@@ -130,42 +139,38 @@ function answerSelected(answer) {
     var userResponse = answer.textContent;
     var correctResponse = questions[questionCounter].correctAnswer;
     if (userResponse == correctResponse) {
-        score++;
+        gameSetting.score++;
     } else {
-        timeTotal -= 5;
+        gameSetting.timeTotal -= 5;
     }
 }
-
 // hides display box, quizbox, and shows results
 function showScoreResults() {
     displayBox.classList.remove("activeDisplayBox")
     quizBox.classList.remove("activeQuizBox")
     result.classList.add("activeResults")
-    userScore.innerHTML = score;
+    userScore.innerHTML = gameSetting.score;
 }
 
-
-
-
 // create functionality to timer
-function startTimer() {
+function startTimer(resetTimer) {
     counter = setInterval(timer, 1000)
     function timer() {
-        timerCount.textContent = timeTotal;
-        timeTotal--;
-        if (timeTotal < 9) {
+        if (resetTimer) {
+            clearInterval(counter);
+        }
+        timerCount.textContent = gameSetting.timeTotal;
+        gameSetting.timeTotal--;
+        if (gameSetting.timeTotal < 9) {
             var singleNumber = timerCount.textContent;
             timerCount.textContent = "0" + singleNumber;
         }
-        if (timeTotal < 0) {
+        if (gameSetting.timeTotal < 0) {
             clearInterval(counter);
             timerCount.textContent = "00"
         }
     }
 }
-
-
-
 
 // Questions and Answers
 var questions = [
