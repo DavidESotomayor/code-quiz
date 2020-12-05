@@ -111,7 +111,8 @@ body {
     height: 30px;
     margin: 0 5px;
     transition: all 0.3s ease;
-    width: 100px;
+    min-width: 100px;
+    padding: 0px 5px;
 }
 
 /* Customizing start button */
@@ -291,7 +292,6 @@ section .answerList .answer:hover {
     margin: 10px auto;
     padding: 5px 0px;
     text-align: center;
-    width: 50%;
 }
 
 .hide {
@@ -299,7 +299,17 @@ section .answerList .answer:hover {
 }
 
 .highscore {
+    background: whitesmoke;
+    border-radius: 5px;
+    color: #797777;
+    width: 55%;
     opacity: 0;
     pointer-events: none;
 }
- 
+
+.inputContent {
+    margin: 0px auto;
+    color: #797777;
+    width: '100%';
+    padding: 10px 0px;
+}

@@ -71,7 +71,9 @@
         </div>
 
         <form>
-            <input type="text" id="inputInitials" name="initials" placeholder="Enter Initials">
+            <span class="inputContent">
+                <input type="text" id="inputInitials" name="initials" placeholder="Enter Initials" autocomplete="off">
+            </span>
             <div class="scoreResultButtons">
                 <button class="submitButton">Submit</button>
                 <button class="viewHighscore hide">View HighScore</button>
@@ -81,13 +83,18 @@
         </form>
     </div>
     <div class="highscore">
-        <div class="users">
-            
+        <div>
+            <span>HighScores</span>
+            <hr>
+            <ul class="users">
+    
+            </ul>
         </div>
 
         <form>
             <div class="scoreResultButtons">
                 <button class="backButton">Back</button>
+                <button class="deleteScores">Delete Highscores</button>
                 <button class="continue">Play Again</button>
                 <button class="quit">Exit Quiz</button>
             </div>
