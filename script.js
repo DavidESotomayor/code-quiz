@@ -8,7 +8,6 @@ var answerList = document.querySelector(".answerList");
 var currentQuestionCounter = quizBox.querySelector(".questionNumberOn");
 var timerCount = quizBox.querySelector(".timerSeconds");
 var result = document.querySelector(".scoreResults");
-var exitButton = document.querySelector(".quit");
 var userScore = document.querySelector(".answersCorrect");
 var userInitialsInput = document.getElementById("inputInitials");
 var submitButton = document.querySelector(".submitButton");
