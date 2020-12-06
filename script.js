@@ -85,9 +85,14 @@ viewHighscore.addEventListener('click', (event) => {
     const users = JSON.parse(localStorage.getItem('users'))
     if (users) {
         const getAllUsers = users.sort((a, b) => b.num - a.num).map((element, index) => {
-            return `<li>${index + 1}. Name: ${element.name}, Num: ${element.num}</li>`
+            return (
+                `<li class="user">
+                    <span>${index + 1}. ${element.name}</span>
+                    <span>${element.num}</span>
+                </li>`
+            )
         })
-        usersList.innerHTML = getAllUsers.join(', ')
+        usersList.innerHTML = getAllUsers.join(' ')
     } else {
         usersList.innerHTML = `<li>No HighScore</li>`
     }
@@ -98,6 +103,7 @@ deleteScores.addEventListener('click', (event) => {
     usersList.innerHTML = '';
     localStorage.removeItem('users')
     const newli = document.createElement('li')
+    newli.innerHTML = `No HighScores`
     usersList.appendChild(newli);
     deleteScores.remove()
     backButton.remove()

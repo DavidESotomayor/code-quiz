@@ -11,6 +11,10 @@ body {
     background: #d2d2d2;
 }
 
+li {
+    list-style: none;
+}
+
 /* Start Quiz Button Positioning */
 /* Display Box Positioning */
 /* Score Results Positioning */
@@ -59,7 +63,8 @@ body {
 }
 
 /* Display Box Title Styling */
-.displayBox .displayBoxTitle {
+.displayBox .displayBoxTitle,
+.highscore .title {
     align-items: center;
     border-bottom: 1px solid #797777;
     display: flex;
@@ -97,11 +102,18 @@ body {
     padding: 0 50px;
 }
 
+.highscore .scoreResultButtons {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #797777;
+    padding: 10px;
+}
 /* Display Box Buttons Styling */
 /* Initials Submit Button Styling */
 .displayBox .displayBoxButtons button,
 .scoreResults .scoreResultButtons button,
-.scoreResults button {
+.scoreResults button,
+.highscore button {
     border-color: #ffdab9;
     border-radius : 5px;
     color: #ffdab9;
@@ -120,7 +132,8 @@ body {
 /* Customizing score result buttons */
 .displayBoxButtons button.continue,
 .scoreResults .scoreResultButtons button,
-.scoreResults button {
+.scoreResults button,
+.highscore button {
     color: #ffdab9;
     background: #797777;
 }
@@ -128,7 +141,8 @@ body {
 .startButton button:hover,
 .displayBoxButtons button.continue:hover,
 .scoreResults .scoreResultButtons button:hover,
-.scoreResults button:hover {
+.scoreResults button:hover,
+.highscore button:hover {
     background: #5d5b5b;
 }
 
@@ -264,12 +278,16 @@ section .answerList .answer:hover {
 .scoreResults .trophy {
     color: #ffdab9;
     font-size: 100px;
+    display: flex;
+    justify-content: center;
 }
 
 .scoreResults .finishText {
     color: #797777;
+    display: flex;
     font-size: 20px;
     font-weight: 500;
+    justify-content: center;
     padding: 5px;
 }
 
@@ -278,6 +296,7 @@ section .answerList .answer:hover {
     font-size: 15px;
     font-weight: 400;
     padding: 5px;
+    padding-bottom: 10px;
     text-align: center;
 }
 
@@ -305,11 +324,21 @@ section .answerList .answer:hover {
     width: 55%;
     opacity: 0;
     pointer-events: none;
+    min-width: 500px;
 }
 
 .inputContent {
     margin: 0px auto;
     color: #797777;
     width: '100%';
-    padding: 10px 0px;
+    padding: 0px 0px 10px;
+}
+.users {
+    padding: 15px 40px;
+}
+
+.user {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px;
 }
